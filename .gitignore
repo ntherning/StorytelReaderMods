@@ -1,0 +1,8 @@
+.DS_Store
+.idea
+
+/build/rkflashtool/build/
+
+/tmp/
+/private/
+__pycache__/

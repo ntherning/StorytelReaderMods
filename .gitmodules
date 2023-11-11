@@ -1,0 +1,6 @@
+[submodule "tools/rkflashtool"]
+	path = build/rkflashtool/rkflashtool
+	url = https://github.com/ntherning/rkflashtool.git
+[submodule "tools/mkbootimg-aosp"]
+	path = tools/mkbootimg
+	url = https://github.com/ntherning/mkbootimg.git

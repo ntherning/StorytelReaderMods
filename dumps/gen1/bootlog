@@ -1,0 +1,631 @@
+<6>[    0.000000] Initializing cgroup subsys cpu
+<5>[    0.000000] Linux version 3.0.36+ (jenkins@jim-hp-workstation-15) (gcc version 4.6.x-google 20120106 (prerelease) (GCC) ) #1 SMP PREEMPT Wed Aug 8 18:38:56 CST 2018
+<4>[    0.000000] CPU: ARMv7 Processor [414fc091] revision 1 (ARMv7), cr=10c5387d
+<4>[    0.000000] CPU: VIPT nonaliasing data cache, VIPT aliasing instruction cache
+<4>[    0.000000] Machine: RK30board
+<6>[    0.000000] memory reserve: Memory(base:0x7ff00000 size:1M) reserved for <ebc waveform buf>
+<6>[    0.000000] memory reserve: Memory(base:0x7f700000 size:8M) reserved for <ebc disp buf>
+<6>[    0.000000] memory reserve: Memory(base:0x7ee00000 size:9M) reserved for <fb0 buf>
+<6>[    0.000000] memory reserve: Memory(base:0x7da00000 size:20M) reserved for <ion>
+<6>[    0.000000] memory reserve: Total reserved 38M
+<4>[    0.000000] Memory policy: ECC disabled, Data cache writeback
+<6>[    0.000000] bootconsole [earlycon0] enabled
+<4>[    0.000000] CPU SRAM: copied sram code from c0b70000 to fef00010 - fef01b28
+<4>[    0.000000] CPU SRAM: copied sram data from c0b71b18 to fef01b28 - fef01d14
+<4>[    0.000000] rk2928_clock_data_init version:	2013-7-17
+<6>[    0.000000] rk3026 soc version:4
+<6>[    0.000000] L310 cache controller enabled
+<6>[    0.000000] l2x0: 16 ways, CACHE_ID 0x4100c0c9, AUX_CTRL 0x76030001, Cache size: 262144 B
+<4>[    0.000000] DDR DEBUG: version 1.01 20140303 
+<4>[    0.000000] DDR DEBUG: 1 CS, ROW=15, Bank=8, COL=10, Total Capability=512MB
+<4>[    0.000000] DDR DEBUG: init success!!! freq=300MHz
+<4>[    0.000000] DDR DEBUG: left channel:Dllsel=0, Ophsel=1, Cycsel=1
+<4>[    0.000000] DDR DEBUG: right channel:Dllsel=0, Ophsel=1, Cycsel=1
+<4>[    0.000000] DDR DEBUG: DRV Pull-Up=0x6, DRV Pull-Dwn=0x7
+<4>[    0.000000] DDR DEBUG: ODT Pull-Up=0x0, ODT Pull-Dwn=0x0
+<7>[    0.000000] On node 0 totalpages: 121344
+<7>[    0.000000] free_area_init_node: node 0, pgdat c0b6d740, node_mem_map c0000000
+<7>[    0.000000]   Normal zone: 976 pages used for memmap
+<7>[    0.000000]   Normal zone: 0 pages reserved
+<7>[    0.000000]   Normal zone: 120368 pages, LIFO batch:31
+<4>[    0.000000]   HighMem zone: 48 pages exceeds realsize 0
+<6>[    0.000000] PERCPU: Embedded 7 pages/cpu @c169e000 s6976 r8192 d13504 u32768
+<7>[    0.000000] pcpu-alloc: s6976 r8192 d13504 u32768 alloc=8*4096
+<7>[    0.000000] pcpu-alloc: [0] 0 [0] 1 
+<4>[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 120368
+<5>[    0.000000] Kernel command line: console=ttyFIQ0 androidboot.console=ttyFIQ0 waveform_addr=0x7ff00000 init=/init initrd=0x62000000,0x00130000 mtdparts=rk29xxnand:0x00002000@0x00002000(misc),0x00004000@0x00004000(kernel),0x00008000@0x00008000(boot),0x00010000@0x00010000(recovery),0x00100000@0x00020000(backup),0x000c8000@0x00120000(cache),0x00190000@0x001e8000(userdata),0x00002000@0x00378000(kpanic),0x00100000@0x0037a000(system),-@0x0047a000(user) pcb_ver=2 onyx_emmc=1 bootver=2016-04-12#2.32 firmware_ver=4.2.2
+<4>[    0.000000] ======== get_ebc_waveform_addr: 0x7ff00000
+<4>[    0.000000] Setup PCB version [2]
+<4>[    0.000000] boot from emmc [1]
+<6>[    0.000000] PID hash table entries: 2048 (order: 1, 8192 bytes)
+<6>[    0.000000] Dentry cache hash table entries: 65536 (order: 6, 262144 bytes)
+<6>[    0.000000] Inode-cache hash table entries: 32768 (order: 5, 131072 bytes)
+<6>[    0.000000] Memory: 474MB = 474MB total
+<5>[    0.000000] Memory: 460524k/460524k available, 63764k reserved, 0K highmem
+<5>[    0.000000] Virtual kernel memory layout:
+<5>[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+<5>[    0.000000]     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+<5>[    0.000000]     DMA     : 0xff600000 - 0xffe00000   (   8 MB)
+<5>[    0.000000]     vmalloc : 0xdf000000 - 0xfe800000   ( 504 MB)
+<5>[    0.000000]     lowmem  : 0xc0000000 - 0xde800000   ( 488 MB)
+<5>[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+<5>[    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+<5>[    0.000000]       .init : 0xc0408000 - 0xc0433000   ( 172 kB)
+<5>[    0.000000]       .text : 0xc0433000 - 0xc0a41958   (6203 kB)
+<5>[    0.000000]       .data : 0xc0a42000 - 0xc0b6f548   (1206 kB)
+<5>[    0.000000]        .bss : 0xc0b72024 - 0xc169c798   (11434 kB)
+<6>[    0.000000] SLUB: Genslabs=13, HWalign=32, Order=0-3, MinObjects=0, CPUs=2, Nodes=1
+<6>[    0.000000] Preemptible hierarchical RCU implementation.
+<6>[    0.000000] NR_IRQS:320
+<4>[    0.000000] rk30_gpio_init: 128 gpio irqs in 4 banks
+<6>[    0.000000] sched_clock: 32 bits at 24MHz, resolution 41ns, wraps every 178956ms
+<4>[    0.000000] rk_timer: version 1.3
+<6>[    0.003808] Calibrating delay loop (skipped) preset value.. 1199.60 BogoMIPS (lpj=5998045)
+<6>[    0.012995] pid_max: default: 32768 minimum: 301
+<6>[    0.018430] Mount-cache hash table entries: 512
+<6>[    0.024269] Initializing cgroup subsys debug
+<6>[    0.029054] Initializing cgroup subsys cpuacct
+<6>[    0.034098] Initializing cgroup subsys freezer
+<6>[    0.039097] CPU: Testing write buffer coherency: ok
+<4>[    0.142499] CPU1: Booted secondary processor
+<6>[    0.142562] Brought up 2 CPUs
+<6>[    0.150683] SMP: Total of 2 processors activated (2399.21 BogoMIPS).
+<6>[    0.158227] devtmpfs: initialized
+<6>[    0.168859] NET: Registered protocol family 16
+<6>[    0.173987] last_log: 0xdd500000 map to 0xdf004000 and copy to 0xc0b734c0 (version 2.1)
+<4>[    0.198614] [ONYX] pcb version is [V1.73]
+<4>[    0.203166] Keycode [116] 
+<4>[    0.206246] Keycode [104]  config changed to GPIO[205]
+<4>[    0.212026] Keycode [109]  config changed to GPIO[206]
+<4>[    0.217796] Keycode [158] 
+<4>[    0.220874] Keycode [158] 
+<4>[    0.223966] [ONYX]Setup emmc boot
+<4>[    0.227728] DVFS MSG:	AVS Value(index=0): 235 234 234 234 234 234 234 234 234 234 
+<6>[    0.248071] lcdc0 is used as primary display device contoller!
+<6>[    0.254628] warning:lcdc1 not add to system!
+<4>[    0.259538] __________rk29sdk_wifi_bt_gpio_control_init======
+<6>[    0.366125] rk29sdk_wifi_bt_gpio_control_init: init finished
+<6>[    0.373937] console [ttyFIQ0] enabled, bootconsole disabled
+<6>[    0.383131] Registered FIQ tty driver dd489c00
+<6>[    0.383812] Loaded driver for PL330 DMAC--1 rk29-pl330
+<6>[    0.383861] 	DBUFF-64x8bytes Num_Chans-8 Num_Peri-14 Num_Events-16
+<6>[    0.404732] rk29xx_spim: driver initialized, fifo_len=32,bus_num=0
+<6>[    0.420538] bio: create slab <bio-0> at 0
+<5>[    0.425159] SCSI subsystem initialized
+<6>[    0.425445] usbcore: registered new interface driver usbfs
+<6>[    0.425592] usbcore: registered new interface driver hub
+<6>[    0.439763] usbcore: registered new device driver usb
+<6>[    0.440331] rk30_i2c rk30_i2c.0: i2c-0: RK30 I2C adapter
+<6>[    0.440503] rk30_i2c rk30_i2c.1: i2c-1: RK30 I2C adapter
+<6>[    0.440935] rk30_i2c rk30_i2c.2: i2c-2: RK30 I2C adapter
+<6>[    0.441097] rk30_i2c rk30_i2c.3: i2c-3: RK30 I2C adapter
+<6>[    0.478433] rk30-adc rk30-adc: rk30 adc: driver initialized
+<6>[    0.484392] Advanced Linux Sound Architecture Driver Version 1.0.24.
+<6>[    0.491377] Bluetooth: Core ver 2.16
+<6>[    0.495106] NET: Registered protocol family 31
+<6>[    0.499596] Bluetooth: HCI device and connection manager initialized
+<6>[    0.505997] Bluetooth: HCI socket layer initialized
+<6>[    0.510914] Bluetooth: L2CAP socket layer initialized
+<6>[    0.516019] Bluetooth: SCO socket layer initialized
+<4>[    0.522391] rk fb probe ok!
+<4>[    0.526540] act8931_set_init,line=22
+<4>[    0.526582] act8931_set_init:g_pmic_type=3
+<4>[    0.526625] [ONYX] pcb version is [V1.73]
+<4>[    0.526658] [ONYX] Set VCCIO initial voltage to 3.3v
+<4>[    0.528461] act8931_set_init  act_dcdc1 =3300000mV end
+<4>[    0.530354] act8931_set_init  act_dcdc2 =1350000mV end
+<4>[    0.532266] act8931_set_init  vdd_cpu =1200000mV end
+<4>[    0.533523] act8931_set_init  act_ldo1 =2800000mV end
+<4>[    0.535321] act8931_set_init  act_ldo3 =3000000mV end
+<4>[    0.537114] act8931_set_init  act_ldo4 =3000000mV end
+<4>[    0.537157] act8931_set_init,line=81 END
+<4>[    0.537426] [ONYX] pcb version is [V1.73]
+<4>[    0.537519] i2c-core: driver [act8931] using legacy suspend method
+<4>[    0.537570] i2c-core: driver [act8931] using legacy resume method
+<4>[    0.537627] wm831x_i2c_init
+<6>[    0.537726] Switching to clocksource rk_timer
+<6>[    0.541849] Switched to NOHz mode on CPU #0
+<6>[    0.542564] Switched to NOHz mode on CPU #1
+<4>[    0.546699] lcdc0:reg_phy_base = 0x1010e000,reg_vir_base:0xdf0a4000
+<4>[    0.546793] fb0:win0
+<4>[    0.546800] fb1:win1
+<4>[    0.546806] fb2:win2
+<4>[    0.569022] fb0:phy:7ee00000>>vir:e0000000>>len:0x900000
+<4>[    0.569353] rk_fb_register>>>>>fb0
+<6>[    0.630372] cfg80211: Calling CRDA to update world regulatory domain
+<4>[    0.637092] rk_fb_register>>>>>fb1
+<4>[    0.637130] rk3188 lcdc0 probe ok!
+<6>[    0.637362] [tps] tps65185_probe(851): I2C addr:68
+<6>[    0.807994] papyrus: detected device with ID=65 (TPS65185r1p2)
+<6>[    0.808333] [tps] tps65185_vcom_get(1044): tps65185_vcom_get enter.
+<6>[    0.828134] [tps] tps65185_vcom_get(1057): read_vcom_mv = 211
+<4>[    0.828184] tps65185_probe vcomvalue = 211
+<6>[    0.828227] [tps] tps65185_probe(870): tps65185_probe ok.
+<4>[    0.828316] i2c-core: driver [tps65185] using legacy suspend method
+<4>[    0.828367] i2c-core: driver [tps65185] using legacy resume method
+<4>[    0.829542] spi_gpio: probe of spi_gpio.3 failed with error -22
+<4>[    0.829665] [ONYX] pcb version is [V1.73]
+<4>[    0.829701] rk30_adc_battery_init -- skip init for PCB v17x
+<6>[    0.966330] cw201x 0-0062: cw2015/cw2013 driver v1.2 probe sucess
+<6>[    0.972658] NET: Registered protocol family 2
+<6>[    0.972843] IP route cache hash table entries: 4096 (order: 2, 16384 bytes)
+<6>[    0.973255] TCP established hash table entries: 16384 (order: 5, 131072 bytes)
+<6>[    0.973638] TCP bind hash table entries: 16384 (order: 5, 196608 bytes)
+<6>[    0.974049] TCP: Hash tables configured (established 16384 bind 16384)
+<6>[    0.974102] TCP reno registered
+<6>[    0.974136] UDP hash table entries: 256 (order: 1, 8192 bytes)
+<6>[    0.974202] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+<6>[    0.974620] NET: Registered protocol family 1
+<4>[    0.974879] RK29 Backlight Driver Initialized.
+<6>[    0.975166] Unpacking initramfs...
+<6>[    1.050893] Freeing initrd memory: 1216K
+<6>[    1.051035] PMU: registered new PMU device of type 0
+<3>[    1.051182] DVFS ERR:	gpu can't get regulator in clk_enable_dvfs
+<3>[    1.051235] DVFS ERR:	dvfs(gpu) is not register regulator
+<3>[    1.051281] DVFS ERR:	ddr can't get regulator in clk_enable_dvfs
+<4>[    1.077385] rk3026 cpufreq version 2.2, suspend freq 912 MHz
+<4>[    1.083293] highmem bounce pool size: 64 pages
+<6>[    1.083493] ashmem: initialized
+<6>[    1.092438] fuse init (API version 7.16)
+<6>[    1.097340] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 251)
+<6>[    1.097406] io scheduler noop registered
+<6>[    1.097445] io scheduler deadline registered
+<6>[    1.097527] io scheduler cfq registered (default)
+<6>[    1.117859] rga: Driver loaded succesfully
+<4>[    1.118124] spi_ctl_pins_enable: enable =1
+<4>[    1.118158] [ONYX] pcb version is [V1.73]
+<4>[    1.118190] 
+<4>[    1.118193] 
+<4>[    1.118197] cw_disable_batt_low_irq Disabing irq
+<4>[    1.118251] [ONYX] pcb version is [V1.73]
+<4>[    1.128522] panel_get_id unknown vcom value !!!!!!!!!!!! default to -1.80V
+<4>[    1.128919] panel_get_id: panel id:[]
+<4>[    1.128948] panel_get_id: vcom:[][-2200]
+<4>[    1.128978] panel_get_id: wfm_ver:[]
+<4>[    1.129004] panel_get_id: barcode:[]
+<4>[    1.129035] spi_ctl_pins_enable: enable =0
+<4>[    1.129068] [ONYX] pcb version is [V1.73]
+<4>[    1.139113] [ONYX] pcb version is [V1.73]
+<4>[    1.139143] 
+<4>[    1.139147] 
+<4>[    1.139151] cw_disable_batt_low_irq Enabling irq
+<6>[    1.149217] [tps] tps65185_vcom_get(1044): tps65185_vcom_get enter.
+<6>[    1.168127] [tps] tps65185_vcom_get(1057): read_vcom_mv = 211
+<6>[    1.168172] [tps] tps65185_vcom_get(1044): tps65185_vcom_get enter.
+<6>[    1.188118] [tps] tps65185_vcom_get(1057): read_vcom_mv = 211
+<4>[    1.188372] rk_serial.c v1.4 2013-04-16
+<6>[    1.188501] rk_serial.0: ttyS0 at MMIO 0x20060000 (irq = 52) is a rk29_serial.0
+<6>[    1.188673] rk_serial rk_serial.0: membase 0xdf0a2000
+<6>[    1.188944] Rockchip ion module(version: 1.0) is successfully loaded
+<6>[    1.191343] loop: module loaded
+<6>[    1.191414] Android kernel panic handler initialized (bind=kpanic)
+<6>[    1.192287] PPP generic driver version 2.4.2
+<6>[    1.192473] PPP Deflate Compression module registered
+<6>[    1.192513] PPP BSD Compression module registered
+<6>[    1.193188] PPP MPPE Compression module registered
+<6>[    1.193230] NET: Registered protocol family 24
+<6>[    1.193352] usbcore: registered new interface driver asix
+<6>[    1.193434] usbcore: registered new interface driver cdc_ether
+<6>[    1.193505] usbcore: registered new interface driver dm9620
+<6>[    1.193584] usbcore: registered new interface driver SR9700_android
+<6>[    1.193659] usbcore: registered new interface driver net1080
+<6>[    1.193728] usbcore: registered new interface driver cdc_subset
+<6>[    1.193799] usbcore: registered new interface driver zaurus
+<6>[    1.193854] cdc_ncm: 04-Aug-2011
+<6>[    1.193910] usbcore: registered new interface driver cdc_ncm
+<4>[    1.193952] Rockchip WiFi SYS interface (V1.00) ... 
+<6>[    1.194022] Initializing USB Mass Storage driver...
+<6>[    1.194101] usbcore: registered new interface driver usb-storage
+<6>[    1.194144] USB Mass Storage support registered.
+<6>[    1.194283] usbcore: registered new interface driver usbserial
+<6>[    1.194351] USB Serial support registered for generic
+<6>[    1.194423] usbcore: registered new interface driver usbserial_generic
+<6>[    1.194470] usbserial: USB Serial Driver core
+<6>[    1.194529] USB Serial support registered for GSM modem (1-port)
+<6>[    1.194618] usbcore: registered new interface driver option
+<6>[    1.194659] option: v0.7.2:USB Driver for GSM modems
+<4>[    1.194766] ~~~~~~~~~~usb20otg_soft_reset
+<6>[    1.407726] DWC_OTG: ^^^^^^^^^^^^^^^^^Device Mode
+<6>[    1.407786] usb20_otg usb20_otg: DWC OTG Controller
+<6>[    1.407944] usb20_otg usb20_otg: new USB bus registered, assigned bus number 1
+<6>[    1.408026] usb20_otg usb20_otg: irq 42, io mem 0x00000000
+<6>[    1.408069] DWC_OTG: dwc_otg_hcd_start controller in device mode,everest
+<6>[    1.408168] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+<6>[    1.408219] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+<6>[    1.408272] usb usb1: Product: DWC OTG Controller
+<6>[    1.408308] usb usb1: Manufacturer: Linux 3.0.36+ dwc_otg_hcd
+<6>[    1.408349] usb usb1: SerialNumber: usb20_otg
+<6>[    1.408830] hub 1-0:1.0: USB hub found
+<6>[    1.408872] hub 1-0:1.0: 1 port detected
+<6>[    1.409694] DWC_OTG: host20_driver_probe host2.0 reg addr: 0x101c0000 remap:0xdf200000
+<6>[    1.620175] DWC_OTG: ^^^^^^^^^^^^^^^^^^Host Mode
+<6>[    1.620243] usb20_host usb20_host: DWC OTG Controller
+<6>[    1.620321] usb20_host usb20_host: new USB bus registered, assigned bus number 2
+<6>[    1.620399] usb20_host usb20_host: irq 43, io mem 0x00000000
+<6>[    1.620480] DWC_OTG: Init: Port Power? op_state=1
+<6>[    1.620516] DWC_OTG: Init: Power Port (0)
+<6>[    1.620588] usb usb2: New USB device found, idVendor=1d6b, idProduct=0002
+<6>[    1.620638] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+<6>[    1.620690] usb usb2: Product: DWC OTG Controller
+<6>[    1.620726] usb usb2: Manufacturer: Linux 3.0.36+ host20_hcd
+<6>[    1.620766] usb usb2: SerialNumber: usb20_host
+<6>[    1.621164] hub 2-0:1.0: USB hub found
+<6>[    1.621203] hub 2-0:1.0: 1 port detected
+<6>[    1.622722] android_usb gadget: Mass Storage Function, version: 2009/09/11
+<6>[    1.622777] android_usb gadget: Number of LUNs=2
+<6>[    1.622814]  lun0: LUN: removable file: (no medium)
+<6>[    1.622851]  lun1: LUN: removable file: (no medium)
+<6>[    1.623120] android_usb gadget: android_usb ready
+<6>[    1.623520] input: rk29-keypad as /devices/platform/rk29-keypad/input/input0
+<4>[    1.623747] ==register_early_suspend =
+<6>[    1.623905] usbcore: registered new interface driver xpad
+<6>[    1.623987] usbcore: registered new interface driver usb_acecad
+<6>[    1.624030] acecad: v3.2:USB Acecad Flair tablet driver
+<6>[    1.624102] usbcore: registered new interface driver aiptek
+<6>[    1.624143] aiptek: v2.3 (May 2, 2007):Aiptek HyperPen USB Tablet Driver (Linux 2.6.x)
+<6>[    1.624198] aiptek: Bryan W. Headley/Chris Atenasio/Cedric Brun/Rene van Paassen
+<6>[    1.624282] usbcore: registered new interface driver gtco
+<4>[    1.624321] GTCO usb driver version: 2.00.0006
+<6>[    1.624385] usbcore: registered new interface driver hanwang
+<6>[    1.624456] usbcore: registered new interface driver kbtab
+<6>[    1.624496] kbtab: v0.0.2:USB KB Gear JamStudio Tablet driver
+<6>[    1.624574] usbcore: registered new interface driver wacom
+<6>[    1.624614] wacom: v1.52:USB Wacom tablet driver
+<4>[    1.624649] [elan] elan_ts_init driver 004 version : auto-mapping resolution
+<4>[    1.624726] [elan] elan_ts_probe enter i2c addr 0x15
+<4>[    1.624766] [ONYX] pcb version is [V1.73]
+<4>[    1.625490] [ONYX] pcb version is [V1.73]
+<4>[    1.625526] onyx_tp_power_enable -- TP power On
+<4>[    1.637820] [elan] elan_gpio_init enter. 
+<4>[    1.657821] [elan]: elan_ts_poll: status = 1
+<4>[    1.707820] [elan]: elan_ts_poll: status = 1
+<4>[    1.757830] [elan]: elan_ts_poll: status = 1
+<4>[    1.807817] [elan]: elan_ts_poll: status = 1
+<4>[    1.857818] [elan]: elan_ts_poll: status = 1
+<4>[    1.907816] [elan]: elan_ts_poll: status = 1
+<4>[    1.957818] [elan]: elan_ts_poll: status = 1
+<4>[    2.007823] [elan]: elan_ts_poll: status = 1
+<4>[    2.057818] [elan]: elan_ts_poll: status = 1
+<4>[    2.107816] [elan]: elan_ts_poll: status = 1
+<4>[    2.157817] [elan]: elan_ts_poll: status = 1
+<4>[    2.207816] [elan]: elan_ts_poll: status = 1
+<4>[    2.257818] [elan]: elan_ts_poll: status = 1
+<4>[    2.307816] [elan]: elan_ts_poll: status = 1
+<4>[    2.357817] [elan]: elan_ts_poll: status = 1
+<4>[    2.407816] [elan]: elan_ts_poll: status = 1
+<4>[    2.457816] [elan]: elan_ts_poll: status = 1
+<4>[    2.507815] [elan]: elan_ts_poll: status = 1
+<4>[    2.557813] [elan]: elan_ts_poll: status = 1
+<4>[    2.607816] [elan]: elan_ts_poll: status = 1
+<4>[    2.657817] [elan]elan_ts_poll: poll interrupt status high
+<4>[    2.657860] [elan] __hello_packet_handler: Int poll 55 55 55 55 failed!
+<3>[    2.658799] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 2...
+<3>[    2.659735] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 1...
+<3>[    2.660670] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 0...
+<3>[    2.661608] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 2...
+<3>[    2.662543] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 1...
+<3>[    2.663477] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 0...
+<3>[    2.664411] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 2...
+<3>[    2.665345] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 1...
+<3>[    2.666280] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 0...
+<3>[    2.667214] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 2...
+<3>[    2.668149] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 1...
+<3>[    2.669080] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 0...
+<3>[    2.669143] Retry I2C2 Read error -11...
+<3>[    2.669150] 
+<4>[    2.669184] [elan error] __hello_packet_handler recv error, retry
+<4>[    2.669229] [elan] __hello_packet_handler: hello packet ff:ff:ff:ff
+<3>[    2.669771] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 2...
+<3>[    2.670328] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 1...
+<3>[    2.670884] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 0...
+<3>[    2.671442] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 2...
+<3>[    2.672000] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 1...
+<3>[    2.672556] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 0...
+<3>[    2.673114] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 2...
+<3>[    2.673670] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 1...
+<3>[    2.674226] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 0...
+<3>[    2.674783] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 2...
+<3>[    2.675340] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 1...
+<3>[    2.675896] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 0...
+<3>[    2.675958] Retry I2C2 Write error -11...
+<3>[    2.675965] 
+<3>[    2.688680] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 2...
+<3>[    2.689613] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 1...
+<3>[    2.690545] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 0...
+<3>[    2.691478] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 2...
+<3>[    2.692410] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 1...
+<3>[    2.693341] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 0...
+<3>[    2.694274] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 2...
+<3>[    2.695206] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 1...
+<3>[    2.696138] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 0...
+<3>[    2.697070] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 2...
+<3>[    2.698006] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 1...
+<3>[    2.698941] i2c i2c-2: No ack, Maybe slave(addr: 0x15) not exist or abnormal power-on, retry 0...
+<3>[    2.699003] Retry I2C2 Read error -11...
+<3>[    2.699010] 
+<4>[    2.699046] [elan error] elan_ts_setup, hello_packet_handler fail, rc = -11
+<4>[    2.699095] [elan error]: elan_ts_probe No Elan chip inside, return now
+<4>[    2.699142] [elan] elan_gpio_deinit. 
+<4>[    2.699172] [ONYX] pcb version is [V1.73]
+<4>[    2.699866] [ONYX] pcb version is [V1.73]
+<4>[    2.699899] onyx_tp_power_enable -- TP power Off
+<4>[    2.700232] [elan]: elan_ts_init add do i2c_add_driver and the return value=0
+<6>[    2.700501] input: fts_ts as /devices/platform/rk30_i2c.2/i2c-2/2-0038/input/input1
+<4>[    2.737855] [ONYX] pcb version is [V1.73]
+<4>[    2.737894] onyx_tp_power_enable -- TP power On
+<6>[    2.898285] fts_ts 2-0038: Device ID = 0x54
+<4>[    2.898783] fts_get_upgrade_array chip_id = 54
+<6>[    2.899475] fts_ts 2-0038: report rate = 110Hz
+<6>[    2.901326] fts_ts 2-0038: Firmware version = 131.0.0
+<6>[    2.901861] fts_ts 2-0038: Create proc entry success!
+<6>[    2.901921] fts:fts_create_sysfs() - sysfs_create_group() succeeded.
+<6>[    2.902695] cyttsp4_core_init: Cypress TTSP v4 core driver (Built 20130612) rc=0
+<4>[    2.902751] cyttsp4_i2c_init: skip tp checking
+<6>[    2.902812] cyttsp4_mt_init: Cypress TTSP MT v4 multi-touch (Built 20130612), rc=0
+<6>[    2.971871] using rtc device, rtc_hym8563, for alarms
+<6>[    2.971941] rtc_hym8563 0-0051: rtc core: registered rtc_hym8563 as rtc0
+<6>[    2.972029] i2c /dev entries driver
+<6>[    2.972625] lirc_dev: IR Remote Control driver registered, major 248 
+<6>[    2.972673] IR NEC protocol handler initialized
+<6>[    2.972707] IR RC5(x) protocol handler initialized
+<6>[    2.972742] IR RC6 protocol handler initialized
+<6>[    2.972775] IR JVC protocol handler initialized
+<6>[    2.972808] IR Sony protocol handler initialized
+<6>[    2.972842] IR RC5 (streamzap) protocol handler initialized
+<6>[    2.972882] IR LIRC bridge handler initialized
+<6>[    2.972915] Linux video capture interface: v2.00
+<4>[    2.973226] def_ref_volt: 3300mV, curr_ref_volt: 3339mV
+<6>[    2.973733] device-mapper: uevent: version 1.0.3
+<6>[    2.974050] device-mapper: ioctl: 4.20.0-ioctl (2011-02-02) initialised: dm-devel@redhat.com
+<6>[    2.974232] Bluetooth: HCI UART driver ver 2.2
+<6>[    2.974269] Bluetooth: HCI H4 protocol initialized
+<6>[    2.974304] Bluetooth: HCILL protocol initialized
+<6>[    2.974386] cpuidle: using governor ladder
+<6>[    2.974418] cpuidle: using governor menu
+<6>[    3.020707] 
+<6>[    3.020712] drivers/mmc/core/core.c...2010..  ===== mmc_rescan Begin....[mmc0]
+<4>[    3.020798] 
+<4>[    3.020802] =================
+<4>[    3.020808] sdmmc_rescan..2017..  ====find no SDMMC host. [mmc0]
+<6>[    3.020947] .Line4019..The End of SDMMC-probe Ver.5.05 The last modify date is 2013-05-08.  [sd_mmc]
+<6>[    3.021222] 
+<6>[    3.021227] drivers/mmc/core/core.c...2010..  ===== mmc_rescan Begin....[mmc1]
+<6>[    3.021319] .Line4019..The End of SDMMC-probe Ver.5.05 The last modify date is 2013-05-08.  [sdio]
+<6>[    3.023241] usbcore: registered new interface driver usbhid
+<6>[    3.023287] usbhid: USB HID core driver
+<6>[    3.037904] rk29_sdmmc_change_clk_div..1994..  newDiv=40, newCLK=300Khz [sdio]
+<6>[    3.038315] logger: created 256K log 'log_main'
+<6>[    3.038427] logger: created 256K log 'log_events'
+<6>[    3.038548] logger: created 256K log 'log_radio'
+<6>[    3.038647] logger: created 256K log 'log_system'
+<4>[    3.039144] rk3026_get_parameter : Can not get ap_has_alsa from kernel command line!
+<4>[    3.087846] rk3026_probe : rk3026 hp_ctl_gpio is NULL!
+<4>[    3.108038] rk3026_probe : i2s sdi from acodec val=0x1420,soc_con[0] bit 10 =1 is correct
+<3>[    3.108138] rk3026-codec rk3026-codec: Failed to add route Mic Jack->Mic Bias
+<6>[    3.113910] asoc: rk3026-hifi <-> rk29_i2s.0 mapping ok
+<6>[    3.119582] asoc: rk3026-voice <-> rk29_i2s.0 mapping ok
+<6>[    3.120203] ALSA device list:
+<6>[    3.120231]   #0: RK_RK3026
+<6>[    3.120367] GACT probability NOT on
+<6>[    3.120402] Mirror/redirect action on
+<6>[    3.120431] u32 classifier
+<6>[    3.120452]     Actions configured
+<6>[    3.120480] Netfilter messages via NETLINK v0.30.
+<6>[    3.120565] nf_conntrack version 0.5.0 (7214 buckets, 28856 max)
+<6>[    3.120955] ctnetlink v0.93: registering with nfnetlink.
+<6>[    3.121030] NF_TPROXY: Transparent proxy support initialized, version 4.1.0
+<6>[    3.121080] NF_TPROXY: Copyright (c) 2006-2007 BalaBit IT Ltd.
+<6>[    3.121488] xt_time: kernel timezone is -0000
+<6>[    3.121697] ip_tables: (C) 2000-2006 Netfilter Core Team
+<6>[    3.121892] arp_tables: (C) 2002 David S. Miller
+<6>[    3.121975] TCP cubic registered
+<6>[    3.122001] Initializing XFRM netlink socket
+<6>[    3.122587] NET: Registered protocol family 10
+<6>[    3.123433] Mobile IPv6
+<6>[    3.123491] ip6_tables: (C) 2000-2006 Netfilter Core Team
+<6>[    3.123664] IPv6 over IPv4 tunneling driver
+<6>[    3.124572] NET: Registered protocol family 17
+<6>[    3.124642] NET: Registered protocol family 15
+<6>[    3.124920] Bluetooth: RFCOMM TTY layer initialized
+<6>[    3.124995] Bluetooth: RFCOMM socket layer initialized
+<6>[    3.125033] Bluetooth: RFCOMM ver 1.11
+<6>[    3.125063] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+<6>[    3.125103] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+<6>[    3.125285] NET: Registered protocol family 35
+<6>[    3.125528] [BT_RFKILL]: Enter rfkill_rk_init
+<4>[    3.125652] pmic set pm_suspend_volt:
+<6>[    3.125871] Registered character driver
+<4>[    3.125902] [RK_EPD]: version 1.02 20141016 
+<4>[    3.125971] V1.0.11 VERSION 20170418
+<4>[    3.128120] [rk29_ebc_probe]: ebc_buf start addr is 0x7ff00000.
+<4>[    3.129183] [epd_lut_from_nand_init] : waveform info: bf 24 4c 7a.
+<4>[    3.129234] epd_lut_from_nand_init spi_id_buffer = 320_G108_AB1F01_ED060XC9T1_TCx
+<4>[    3.129287] ---get lut from file sucesss---
+<4>[    3.136472] boot_ani_init temp_frame->mOrignalSize= 388099
+<4>[    3.139283] boot_ani_init temp_frame->mOrignalSize= 181717
+<4>[    3.140541] boot_ani_init temp_frame->mOrignalSize= 181235
+<4>[    3.141814] boot_ani_init temp_frame->mOrignalSize= 388099
+<4>[    3.144930] [ONYX] pcb version is [V1.73]
+<4>[    3.146607] [ONYX] pcb version is [V1.73]
+<4>[    3.148208] [ONYX] pcb version is [V1.73]
+<4>[    3.148242] ebc ___ onyx _____gBatteryData->bat_voltage=4192000
+<4>[    3.148284] [ONYX] pcb version is [V1.73]
+<6>[    3.151818] VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
+<5>[    3.151905] Registering SWP/SWPB emulation handler
+<4>[    3.152327] eink mode = 5
+<6>[    3.152479] ddrfreq: change freq to 300 MHz when normal
+<6>[    3.152525] ddrfreq: verion 3.2 20130917
+<6>[    3.152555] ddrfreq: fix cpu pause bug
+<6>[    3.152588] ddrfreq: normal 300MHz video 300MHz video_low 0MHz dualview 0MHz idle 0MHz suspend 198MHz reboot 300MHz
+<6>[    3.153508] sensor_init: Probe name sensors
+<4>[    3.153556] sensor-dev.c v1.4 add angle calculation support between two gsensors 2013-09-01
+<6>[    3.154182] rtc_hym8563 0-0051: setting system clock to 2011-01-18 16:35:49 UTC (1295368549)
+<6>[    3.154482] Freeing init memory: 172K
+<4>[    3.215580] init (1): /proc/1/oom_adj is deprecated, please use /proc/1/oom_score_adj instead.
+<4>[    3.217069] epd_lut_data_get_pvi_hard 5
+<6>[    3.257701] keychord: using input dev rk29-keypad for fevent
+<4>[    3.351414] gp_rknand_info = : 0xdd64e800
+<4>[    3.351558] rk30_chip_set:2 
+<4>[    3.351655] FtlInit!
+<4>[    3.351699] gBootMedia = 2 gSdmmcFwPartOffset =2000!
+<4>[    3.351744] CardId = 2
+<4>[    3.487026] rk29_dma_set_buffdone_fn
+<4>[    3.487058] EmmcBus_khz = 48000
+<4>[    3.487082] SDM_Init OK
+<4>[    3.488136] SDC_SetHostBusWidth flag 1 , 2 bits
+<4>[    3.488194] CLKDATA_WANNING:	clksel_set_rate_freediv clk=emmc, div=63, rate=4000000, new_rate=12000000
+<4>[    3.488268] EmmcBus_khz = 12000 , need = 4000
+<4>[    3.500597] EmmcBus_khz = 34909 , need = 36000
+<4>[    3.501027] EmmcBus_khz = 96000 , need = 100000
+<4>[    3.501064] SDC_SetHostBusWidth flag 3 , 8 bits
+<4>[    3.501142] SdmmcInit BootCapSize: 0x400
+<4>[    3.501962] SdmmcInit UserCapSize: 0xe90000
+<4>[    3.501997] SdmmcInit ret = 0!
+<4>[    3.502024] rknand_buffer.c version: 4.40 20130830!
+<5>[    3.502246] 10 cmdlinepart partitions found on MTD device rk29xxnand
+<5>[    3.502297] Creating 10 MTD partitions on "rk29xxnand":
+<5>[    3.502341] 0x000000400000-0x000000800000 : "misc"
+<5>[    3.503608] 0x000000800000-0x000001000000 : "kernel"
+<5>[    3.504508] 0x000001000000-0x000002000000 : "boot"
+<5>[    3.505228] 0x000002000000-0x000004000000 : "recovery"
+<5>[    3.505944] 0x000004000000-0x000024000000 : "backup"
+<5>[    3.507069] 0x000024000000-0x00003d000000 : "cache"
+<5>[    3.508224] 0x00003d000000-0x00006f000000 : "userdata"
+<5>[    3.509698] 0x00006f000000-0x00006f400000 : "kpanic"
+<6>[    3.511553] apanic: Bound to mtd partition 'kpanic'
+<6>[    3.511593] apanic: No panic data available
+<5>[    3.511639] 0x00006f400000-0x00008f400000 : "system"
+<5>[    3.512952] 0x00008f400000-0x0001d1c00000 : "user"
+<6>[    3.570945] EXT4-fs (mtdblock8): mounted filesystem with ordered data mode. Opts: discard
+<6>[    3.645201] EXT4-fs (mtdblock6): mounted filesystem with ordered data mode. Opts: discard
+<6>[    3.673861] EXT4-fs (mtdblock5): mounted filesystem with ordered data mode. Opts: discard
+<4>[    3.725363] UMP: Using OS memory backend, allocation limit: 268435456
+<4>[    3.725421] UMP: UMP device driver  loaded
+<4>[    3.755035] Mali: Mali400 inside of rk3026!
+<4>[    3.755079] Mali: mali freq table num : 3 
+<4>[    3.755114] Mali: mali freq table :Mali: 192,Mali: 256,Mali: 384,Mali: 
+<4>[    3.755184] Mali: init mali clock success 
+<4>[    3.761095] Mali: @@@@@@@Mali device driver loaded success@@@@@@@@
+<4>[    3.763490] rk29_ipp: module is from the staging directory, the quality is unknown, you have been warned.
+<4>[    3.764788] IPP init, version rk30-ipp 1.003
+<3>[    3.769071] init: /sbin/e2fsck terminated by exit(8)
+<3>[    3.769122] init: Operational error while checking volume '/dev/block/platform/emmc/by-name/system'
+<6>[    3.769518] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<3>[    3.778114] init: /sbin/e2fsck terminated by exit(8)
+<3>[    3.778165] init: Operational error while checking volume '/dev/block/platform/emmc/by-name/system'
+<6>[    3.788500] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<3>[    3.914397] init: cannot find '/system/vendor/bin/pvrsrvctl', disabling 'pvrsrvctl'
+<3>[    3.919023] init: cannot find '/system/bin/rild', disabling 'ril-daemon'
+<3>[    3.919103] init: cannot find '/system/bin/rild3', disabling 'ril-daemon3'
+<3>[    3.942623] init: cannot find '/system/bin/bplus_helper', disabling 'bplus_helper'
+<4>[    4.132028] vpu: power on
+<6>[    4.132135] VPU_SERVICE: checking hw id 8270
+<4>[    4.140519] vpu: power off...done
+<6>[    4.140595] VPU_SERVICE: init success
+<4>[    4.141220] RKNAND_GET_SN_SECTOR
+<4>[    4.141254] return ret = 0
+<3>[    4.153183] init: property 'ro.serialno' doesn't exist while expanding '${ro.serialno}'
+<3>[    4.153255] init: cannot expand '${ro.serialno}' while writing to '/sys/class/android_usb/android0/iSerial'
+<3>[    4.153686] init: using deprecated syntax for specifying property 'ro.product.usbfactory', use ${name} instead
+<3>[    4.255876] android_usb: already disabled
+<6>[    4.267482] warning: `adbd' uses 32-bit capabilities (legacy support in use)
+<6>[    4.268112] adb_open
+<6>[    4.268143] mtp_bind_config
+<4>[    4.332094] RKNAND_GET_DRM_KEY
+<4>[    4.335228] return ret = 0
+<4>[    4.501801] eink mode = 3
+<4>[    4.518004] epd_lut_data_get_pvi_hard 6
+<6>[    4.845734] lcdc0 win0 closed,atv layer:0
+<4>[    4.849915] rk fb use 3 buffers
+<6>[    4.881964] lcdc0 win1 closed,atv layer:0
+<6>[    4.892924] lcdc0 win1 closed,atv layer:0
+<6>[    4.999880] lcdc0 win0 closed,atv layer:0
+<4>[    5.202529] eink mode = 3
+<4>[    5.258112] epd_lut_data_get_pvi_hard 6
+<4>[    7.214811] eink mode = 3
+<4>[    7.268290] epd_lut_data_get_pvi_hard 6
+<4>[    9.210916] eink mode = 3
+<4>[    9.278004] epd_lut_data_get_pvi_hard 6
+<6>[    9.647820] DWC_OTG: dwc_otg_hcd_enable, disable host controller
+<4>[   11.220471] eink mode = 3
+<4>[   11.278006] epd_lut_data_get_pvi_hard 6
+<4>[   13.242591] eink mode = 3
+<4>[   13.299108] epd_lut_data_get_pvi_hard 6
+<4>[   15.223765] eink mode = 3
+<4>[   15.288086] epd_lut_data_get_pvi_hard 6
+<4>[   17.246955] eink mode = 3
+<4>[   17.308045] epd_lut_data_get_pvi_hard 6
+<6>[   17.437859] DWC_OTG: ********vbus detect*********************************************
+<6>[   17.685563] DWC_OTG: ********soft connect!!!*****************************************
+<6>[   17.691574] DWC_OTG: USB SUSPEND
+<6>[   17.886546] DWC_OTG: USB RESET
+<6>[   17.999971] android_work: sent uevent USB_STATE=CONNECTED
+<6>[   18.005783] DWC_OTG: USB SUSPEND
+<6>[   18.183256] DWC_OTG: USB RESET
+<6>[   18.195163] request_suspend_state: (mem -> on) at (2011-01-18 16:36:04.537076128 UTC)
+<6>[   18.242327] android_usb gadget: high speed config #1: android
+<6>[   18.245302] android_work: sent uevent USB_STATE=CONFIGURED
+<4>[   18.557734] Current WiFi chip is RTL8188EU.
+<4>[   18.674081] =======================================================
+<4>[   18.674151] ==== Launching Wi-Fi driver! (Powered by Rockchip) ====
+<4>[   18.674220] =======================================================
+<4>[   18.674265] Realtek 8188EU USB WiFi driver (Powered by Rockchip,Ver 3.51.WFD) init.
+<4>[   18.674319] wifi_activate_usb
+<6>[   18.674344] ==========onyx---------rk29sdk_wifi_power: 1
+<4>[   18.674391] [ONYX] pcb version is [V1.73]
+<6>[   18.783615] acc_open
+<6>[   18.785873] acc_release
+<6>[   19.007919] wifi turn on power
+<4>[   19.117913] rtl8188eu driver version=v4.1.8_9499.20131104
+<6>[   19.118448] usbcore: registered new interface driver rtl8188eu
+<4>[   19.245336] eink mode = 3
+<4>[   19.308111] epd_lut_data_get_pvi_hard 6
+<6>[   19.648010] DWC_OTG: dwc_otg_hcd_enable, enable host controller
+<6>[   19.797979] DWC_OTG: ^^^^^^^^^^^^^^^^^^Host Mode
+<6>[   19.798108] DWC_OTG: Init: Port Power? op_state=1
+<6>[   19.798145] DWC_OTG: Init: Power Port (0)
+<6>[   20.109986] qtaguid: ctrl_counterset(s 1 10007): insufficient priv from pid=397 tgid=353 uid=1000
+<6>[   20.289112] mtp_open
+<6>[   20.387999] usb 2-1: new high speed USB device number 2 using usb20_host
+<6>[   20.599696] usb 2-1: New USB device found, idVendor=0bda, idProduct=8179
+<6>[   20.599813] usb 2-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+<6>[   20.599877] usb 2-1: Product: 802.11n NIC
+<6>[   20.599908] usb 2-1: Manufacturer: Realtek
+<4>[   20.605878] bFWReady == _FALSE call reset 8051...
+<4>[   20.646805] Current WiFi chip is RTL8188EU.
+<4>[   21.118648] ==> rtl8188e_iol_efuse_patch 
+<4>[   21.316584] eink mode = 3
+<4>[   21.388113] epd_lut_data_get_pvi_hard 6
+<6>[   21.494016] ADDRCONF(NETDEV_UP): p2p0: link is not ready
+<6>[   21.628173] ADDRCONF(NETDEV_UP): wlan0: link is not ready
+<4>[   23.250168] eink mode = 3
+<4>[   23.318118] epd_lut_data_get_pvi_hard 6
+<6>[   24.371044] leds ctl write by onyx
+<4>[   25.232389] eink mode = 3
+<4>[   25.298106] epd_lut_data_get_pvi_hard 6
+<6>[   25.392514] mtp_open
+<4>[   25.557695] eink mode = 1
+<4>[   25.578097] epd_lut_data_get_pvi_hard 1
+<4>[   25.627903] RTL871X: nolinked power save enter
+<6>[   26.194290] mtp_open
+<4>[   26.586773] eink mode = 1
+<4>[   26.648113] epd_lut_data_get_pvi_hard 1
+<4>[   37.108372] ==> rtl8188e_iol_efuse_patch 
+<4>[   37.462154] RTL871X: nolinked power save leave
+<4>[   41.457828] RTL871X: nolinked power save enter
+<4>[   52.118374] ==> rtl8188e_iol_efuse_patch 
+<4>[   52.402155] RTL871X: nolinked power save leave
+<4>[   56.397833] RTL871X: nolinked power save enter
+<4>[   67.128372] ==> rtl8188e_iol_efuse_patch 
+<4>[   67.462155] RTL871X: nolinked power save leave
+<4>[   71.457834] RTL871X: nolinked power save enter
+<4>[   73.800228] eink mode = 3
+<4>[   82.138371] ==> rtl8188e_iol_efuse_patch 
+<4>[   82.432279] RTL871X: nolinked power save leave
+<4>[   86.427856] RTL871X: nolinked power save enter
+<4>[   97.158372] ==> rtl8188e_iol_efuse_patch 
+<4>[   97.452156] RTL871X: nolinked power save leave
+<4>[  101.447838] RTL871X: nolinked power save enter
+<4>[  112.168373] ==> rtl8188e_iol_efuse_patch 
+<4>[  112.502154] RTL871X: nolinked power save leave
+<4>[  116.497825] RTL871X: nolinked power save enter

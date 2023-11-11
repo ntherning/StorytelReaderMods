@@ -1,0 +1,6 @@
+set(CMAKE_SYSTEM_NAME Darwin)
+set(CMAKE_SYSTEM_VERSION 20.4)
+set(CMAKE_C_COMPILER   /usr/x86_64-apple-darwin20.4/bin/cc)
+set(CMAKE_CXX_COMPILER /usr/x86_64-apple-darwin20.4/bin/c++)
+set(CMAKE_BUILD_TYPE RelWithDebInfo)
+set(EXT_CONFIGURE_HOST x86_64-apple-darwin)

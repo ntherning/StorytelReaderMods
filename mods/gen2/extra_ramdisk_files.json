@@ -1,0 +1,50 @@
+{
+  ".backup": {
+    "uid": 0,
+    "gid": 0,
+    "mode": "0",
+    "mtime": 0
+  },
+  ".backup/.magisk": {
+    "uid": 0,
+    "gid": 0,
+    "mode": "0",
+    "mtime": 0
+  },
+  ".backup/.rmlist": {
+    "uid": 0,
+    "gid": 0,
+    "mode": "0",
+    "mtime": 0
+  },
+  ".backup/init": {
+    "uid": 0,
+    "gid": 0,
+    "mode": "750",
+    "mtime": 0
+  },
+  "overlay.d": {
+    "uid": 0,
+    "gid": 0,
+    "mode": "750",
+    "mtime": 0
+  },
+  "overlay.d/sbin": {
+    "uid": 0,
+    "gid": 0,
+    "mode": "750",
+    "mtime": 0
+  },
+  "overlay.d/sbin/magisk32.xz": {
+    "uid": 0,
+    "gid": 0,
+    "mode": "644",
+    "mtime": 0
+  },
+  "overlay.d/sbin/stub.xz": {
+    "uid": 0,
+    "gid": 0,
+    "mode": "644",
+    "mtime": 0
+  }
+}

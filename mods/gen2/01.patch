@@ -1,0 +1,45 @@
+diff -Naur ramdisk.extracted/default.prop ramdisk.extracted.patched/default.prop
+--- ramdisk.extracted/default.prop	2023-11-10 10:23:42
++++ ramdisk.extracted.patched/default.prop	2023-11-10 10:41:51
+@@ -1,9 +1,9 @@
+ #
+ # ADDITIONAL_DEFAULT_PROPERTIES
+ #
+-ro.secure=1
++ro.secure=0
+ ro.allow.mock.location=0
+-ro.debuggable=0
++ro.debuggable=1
+ ro.enable_boot_charger_mode=0
+ ro.zygote=zygote32
+ dalvik.vm.image-dex2oat-Xms=64m
+@@ -19,3 +19,5 @@
+ ro.bootimage.build.date.utc=1676460354
+ ro.bootimage.build.fingerprint=Storytel/salamander/salamander:6.0.1/2023-02-15_11-08_rel_160e7e1/197:user/release-keys
+ persist.sys.usb.config=none
++
++ro.adb.secure=0
+diff -Naur ramdisk.extracted/init.rc ramdisk.extracted.patched/init.rc
+--- ramdisk.extracted/init.rc	2023-11-10 10:23:42
++++ ramdisk.extracted.patched/init.rc	2023-11-10 10:26:36
+@@ -210,6 +210,11 @@
+ on load_system_props_action
+     load_system_props
+ 
++on set_developer_props_action
++    setprop persist.service.adb.enable 1
++    setprop persist.service.debuggable 1
++    setprop persist.sys.usb.config mtp,adb
++
+ on load_persist_props_action
+     load_persist_props
+     start logd
+@@ -229,6 +234,8 @@
+     # this in another action so that the load will be scheduled after the prior
+     # issued fs triggers have completed.
+     trigger load_system_props_action
++
++    trigger set_developer_props_action
+ 
+     # Now we can mount /data. File encryption requires keymaster to decrypt
+     # /data, which in turn can only be loaded when system properties are present

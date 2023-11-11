@@ -1,0 +1,34 @@
+diff -Naur ramdisk.extracted/default.prop ramdisk.extracted.patched/default.prop
+--- ramdisk.extracted/default.prop	2023-11-09 18:38:08
++++ ramdisk.extracted.patched/default.prop	2023-11-09 18:51:49
+@@ -1,7 +1,9 @@
+ #
+ # ADDITIONAL_DEFAULT_PROPERTIES
+ #
+-ro.secure=1
++ro.secure=0
+ ro.allow.mock.location=0
+-ro.debuggable=0
++ro.debuggable=1
+ persist.sys.usb.config=none
++
++ro.adb.secure=0
+diff -Naur ramdisk.extracted/init.patches.rc ramdisk.extracted.patched/init.patches.rc
+--- ramdisk.extracted/init.patches.rc	1970-01-01 01:00:00
++++ ramdisk.extracted.patched/init.patches.rc	2023-11-09 18:53:37
+@@ -0,0 +1,4 @@
++on boot
++    setprop persist.service.adb.enable 1
++    setprop persist.service.debuggable 1
++    setprop persist.sys.usb.config mtp,adb
+diff -Naur ramdisk.extracted/init.rc ramdisk.extracted.patched/init.rc
+--- ramdisk.extracted/init.rc	2023-11-09 18:38:08
++++ ramdisk.extracted.patched/init.rc	2023-11-09 18:50:50
+@@ -7,6 +7,7 @@
+ import /init.usb.rc
+ import /init.${ro.hardware}.rc
+ import /init.trace.rc
++import /init.patches.rc
+ 
+ on early-init
+     # Set init and its forked children's oom_adj.
