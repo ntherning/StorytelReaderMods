@@ -20,7 +20,7 @@ Android E-ink tablet and let you do whatever you want with it.
 
 1. Determine [which version of the device](#versions) you have.
 2. Boot your device into [maskrom mode](#maskrom-mode).
-3. [Install]((#installing-rkflashtool)) `rkflashtool`.
+3. [Install](#installing-rkflashtool) `rkflashtool`.
 4. Backup the `boot` partition:
     ```bash
     rkflashtool r boot > /some/safe/place/boot.img
@@ -234,7 +234,7 @@ shown in *Device Manager*.
 
 ### Testing rkflashtool
 
-Once `rkflashtool` has been (installed)[#installing-rkflashtool] properly and
+Once `rkflashtool` has been [installed](#installing-rkflashtool) properly and
 `rkflashtool` is in the `$PATH` and a Storytel Reader device is connected in 
 [maskrom mode](#maskrom-mode) you should be able to run `rkflashtool p` and get
 output similar to:
