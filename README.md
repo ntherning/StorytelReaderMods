@@ -16,6 +16,43 @@ Android E-ink tablet and let you do whatever you want with it.
 
 ***You paid for it, so you should own it for real.***
 
+## Quickstart
+
+1. Determine [which version of the device](#versions) you have.
+2. Boot your device into [maskrom mode](#maskrom-mode).
+3. [Install]((#installing-rkflashtool)) `rkflashtool`.
+4. Backup the `boot` partition:
+    ```bash
+    rkflashtool r boot > /some/safe/place/boot.img
+    ```
+    > [!IMPORTANT]
+    > BACKUP YOUR `boot` PARTITION!!!
+5. Download and flash the patched boot image for your device version:
+    ```bash
+   # 1st generation device
+    curl -OL "https://github.com/ntherning/StorytelReaderMods/releases/latest/download/boot-gen1-patched.img.zip"
+    unzip boot-gen1-patched.img.zip
+    rkflashtool w boot < boot-gen1-patched.img
+   # 2nd generation device
+    curl -OL "https://github.com/ntherning/StorytelReaderMods/releases/latest/download/boot-gen2-patched.img.zip"
+    unzip boot-gen2-patched.img.zip
+    rkflashtool w boot < boot-gen2-patched.img
+    ```
+6. Reboot the device:
+    ```bash
+    rkflashtool b
+    ```
+7. Congratulations! If all worked you should now be able to connect to your
+   device via [ADB](https://developer.android.com/tools/adb) and install new
+   apps and more. Have a look at the [recipes](#recipes) below for instructions
+   on how to install some useful apps.
+
+1st generation Storytel Reader device running F-Droid
+[![Photo of 1st generation Storytel Reader device running F-Droid](images/gen1-running-fdroid.jpg)](images/gen1-running-fdroid.jpg)
+
+2nd generation Storytel Reader device running RelaunchX
+[![Photo of 2nd generation Storytel Reader device running RelaunchX](images/gen2-running-relaunchx.jpg)](images/gen2-running-relaunchx.jpg)
+
 ## Versions
 
 There are two different versions of the Storytel Reader. Physically, from the
@@ -299,7 +336,7 @@ means that the partition takes up the rest of the space on the flash memory.
 | 0x00008000 | 0x00420000 | vendor         |
 | -          | 0x00428000 | userdata       |
 
-## Enabling ADB developer mode
+## Patching the boot partition
 
 In order to make modifications, such as installing custom apps, we need to
 enable [Android Debug Bridge (ADB)](https://developer.android.com/tools/adb)
@@ -321,25 +358,13 @@ there is no way to allow the ADB client to connect).
 The approach we will take here is to modify the Linux kernel ramdisk in the
 `boot` partition. We will modify the `init.rc` and set the properties which
 enable ADB *after* the `/system/build.prop` file is loaded. On 2nd generation
-devices we will also replace the `init` executable with one which doesn't
-require ADB clients to be authenticated.
-
-### Backup the boot partition
-
-Before making any changes to the boot partition it is important to back it up
-and store the backup in a safe place. 
-
-```bash
-rkflashtool r boot > /some/safe/place/boot.img
-```
-
-> [!IMPORTANT]
-> BACKUP YOUR `boot` PARTITION!!!
+devices we will also patch the ramdisk with
+[magisk](https://github.com/topjohnwu/Magisk) to gain full root permission and
+be able to use `su` via ADB.
 
 ### Required software
 
-We need Git, Python 3 and `cpio` to run the scripts to patch the `boot`
-partition.
+We need Git and Python 3 to run the scripts to patch the `boot` partition.
 
 On **macOS** you get Git and Python 3 by installing the Xcode command line
 developer tools:
@@ -354,21 +379,17 @@ Or alternatively one can use [Homebrew](https://brew.sh/):
 brew install git python3
 ```
 
-`cpio` should already be installed on macOS.
-
-On **Linux** Git, Python 3 anc `cpio` should be available in your distribution's
+On **Linux** Git and Python 3 should be available in your distribution's
 package repository. E.g. on Ubuntu and Debian:
 
 ```bash
-apt install -y git python3 cpio
+apt install -y git python3
 ```
 
-On **Windows 10/11** download and install [Git](https://git-scm.com/download/win),
-[Python 3](https://www.python.org/downloads/windows/)
-and [libarchive](https://libarchive.org/). Extract `libarchive-*.zip` and rename
-`libarchive/bin/bsdcpio.exe` to `libarchive/bin/cpio.exe`. Add `libarchive/bin`
-directory to the `PATH` environment variable. Also make sure `git.exe` and
-`python3.exe` is in your `PATH`.
+On **Windows 10/11** download and install [Git](https://git-scm.com/download/win) and
+[Python 3](https://www.python.org/downloads/windows/). Both are available via
+[winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+Make sure `git.exe` and `python3.exe` is in your `PATH`.
 
 ### Patching the boot partition
 
@@ -381,14 +402,64 @@ git submodule init
 git submodule update
 ```
 
-Now that `python3` and `cpio` is installed and in the `PATH` we can patch the
-`boot` partition to enable ADB:
+Run `tools/repack.py` to patch the `boot` partition from a **1st generation**
+device:
 
 ```bash
 cd StorytelReaderMods/
 mkdir tmp
-mkdir tmp/out
 rkflashtool r boot > tmp/boot.img
-python3 tools/unpack.py --boot-img=tmp/boot.img --out=tmp/out
+
+python3 --boot_img tmp/boot.img --out_img tmp/boot-gen1-patched.img --mods_dir mods/gen1/
 ```
 
+Run `tools/repack.py` to patch the `boot` partition from a **2nd generation**
+device:
+
+```bash
+cd StorytelReaderMods/
+mkdir tmp
+rkflashtool r boot > tmp/boot.img
+
+python3 --boot_img tmp/boot.img --out_img tmp/boot-gen2-patched.img --mods_dir mods/gen2/
+```
+
+## Recipes
+
+Here are instructions for installing some nice to have apps on your Storytel
+Reader.
+
+### F-Droid
+
+[F-Droid](https://f-droid.org) is an alternative to Google Play Store for
+installing FOSS (Free and Open Source Software) apps. Unfortunately the latest
+version is not compatible with the 1st generation Storytel Reader as it runs
+Android 4.2.2 – insteal we have to use the last version compatible version.
+
+1st generation:
+```bash
+curl -O "https://f-droid.org/F-Droid.apk"
+adb install F-Droid.apk
+# Launch F-Droid
+adb shell monkey -p org.fdroid.fdroid -v 1
+```
+
+2nd generation:
+```bash
+curl -O "https://f-droid.org/archive/org.fdroid.fdroid_1012051.apk"
+adb install org.fdroid.fdroid_1012051.apk
+# Launch F-Droid
+adb shell monkey -p org.fdroid.fdroid -v 1
+```
+
+### RelaunchX
+
+Once [F-Droid](#f-droid) is installed you can use it to install
+[RelaunchX](https://f-droid.org/en/packages/com.gacode.relaunchx/) – a launcher
+targeted at devices with E-Ink displays.
+
+### KOReader
+
+[KOReader](https://f-droid.org/en/packages/org.koreader.launcher.fdroid/) is
+an Ebook reader with support for many formats like PDF, DjVu, EPUB, FB2, CBZ. It
+is available via [F-Droid](#f-droid).
