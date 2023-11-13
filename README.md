@@ -402,6 +402,8 @@ git submodule init
 git submodule update
 ```
 
+#### Patching 1st generation boot partition
+
 Run `tools/repack.py` to patch the `boot` partition from a **1st generation**
 device:
 
@@ -409,9 +411,10 @@ device:
 cd StorytelReaderMods/
 mkdir tmp
 rkflashtool r boot > tmp/boot.img
-
-python3 --boot_img tmp/boot.img --out_img tmp/boot-gen1-patched.img --mods_dir mods/gen1/
+python3 tools/repack.py --boot_img tmp/boot.img --out_img tmp/boot-gen1-patched.img --mods_dir mods/gen1/
 ```
+
+#### Patching 2nd generation boot partition
 
 Run `tools/repack.py` to patch the `boot` partition from a **2nd generation**
 device:
@@ -420,8 +423,7 @@ device:
 cd StorytelReaderMods/
 mkdir tmp
 rkflashtool r boot > tmp/boot.img
-
-python3 --boot_img tmp/boot.img --out_img tmp/boot-gen2-patched.img --mods_dir mods/gen2/
+python3 tools/repack.py --boot_img tmp/boot.img --out_img tmp/boot-gen2-patched.img --mods_dir mods/gen2/
 ```
 
 ## Recipes
