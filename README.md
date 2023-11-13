@@ -29,13 +29,22 @@ Android E-ink tablet and let you do whatever you want with it.
     > BACKUP YOUR `boot` PARTITION!!!
 5. Download and flash the patched boot image for your device version:
     ```bash
-   # 1st generation device
+    # Get patched boot image for 1st generation device
     curl -OL "https://github.com/ntherning/StorytelReaderMods/releases/latest/download/boot-gen1-patched.img.zip"
+    # Extract (macOS/Linux)
     unzip boot-gen1-patched.img.zip
+    # Extract (Windows)
+    tar -xf boot-gen1-patched.img.zip
+    # And flash it to the boot partition
     rkflashtool w boot < boot-gen1-patched.img
-   # 2nd generation device
+
+    # Get patched boot image for 2nd generation device
     curl -OL "https://github.com/ntherning/StorytelReaderMods/releases/latest/download/boot-gen2-patched.img.zip"
+    # Extract (macOS/Linux)
     unzip boot-gen2-patched.img.zip
+    # Extract (Windows)
+    tar -xf boot-gen2-patched.img.zip
+    # And flash it to the boot partition
     rkflashtool w boot < boot-gen2-patched.img
     ```
 6. Reboot the device:
