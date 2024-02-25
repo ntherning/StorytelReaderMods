@@ -25,8 +25,8 @@ Android E-ink tablet and let you do whatever you want with it.
     ```bash
     rkflashtool r boot > /some/safe/place/boot.img
     ```
-    > [!IMPORTANT]
-    > BACKUP YOUR `boot` PARTITION!!!
+> [!IMPORTANT]
+> BACKUP YOUR `boot` PARTITION!!!
 5. Download and flash the patched boot image for your device version:
     ```bash
     # Get patched boot image for 1st generation device
@@ -51,7 +51,13 @@ Android E-ink tablet and let you do whatever you want with it.
     ```bash
     rkflashtool b
     ```
-7. Congratulations! If all worked you should now be able to connect to your
+7. Install the Android SDK Platform Tools to get the ADB command which is
+   needed to install new apps to the device. The package can be downloaded
+   from https://developer.android.com/tools/releases/platform-tools. XDA has a
+   great guide on [how to install the SDK Platform Tools for Windows, macOS
+   and
+   Linux](https://www.xda-developers.com/install-adb-windows-macos-linux/#how-to-set-up-adb-on-your-computer).
+8. Congratulations! If all worked you should now be able to connect to your
    device via [ADB](https://developer.android.com/tools/adb) and install new
    apps and more. Have a look at the [recipes](#recipes) below for instructions
    on how to install some useful apps.
@@ -75,7 +81,7 @@ generation device.
 
 |              | 1st generation                                                                                                                       | 2nd generation                                                                                                                       |
 |--------------|--------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| SoC          | [Rockchip RK3026](https://web.archive.org/web/20161129092652/http://www.rock-chips.com/a/en/products/RK30_Series/2013/0731/371.html) | [Rockchip RK3128](https://web.archive.org/web/20161118024804/http://www.rock-chips.com/a/en/products/RK31_Series/2014/0924/525.html) |
+| SoC          | [Rockchip RK3026](https://web.archive.org/web/20161129092652/http://www.rock-chips.com/a/en/products/RK30_Series/2013/0731/371.html) | [Rockchip RK3128](https://web.archive.org/web/20161118024804/http://www.rock-chips.com/a/en/products/RK31_Series/2014/0924/525.html) |
 | CPU          | Dual-Core ARM Cortex-A9, XXX GHz                                                                                                     | Quad-Core ARM Cortex-A7, XXX GHz                                                                                                     |
 | GPU          | ARM Mali-400MP                                                                                                                       | ARM Mali-400MP                                                                                                                       |
 | RAM          | 512 MB                                                                                                                               | 1 GB                                                                                                                                 |
@@ -445,7 +451,7 @@ Reader.
 [F-Droid](https://f-droid.org) is an alternative to Google Play Store for
 installing FOSS (Free and Open Source Software) apps. Unfortunately the latest
 version is not compatible with the 1st generation Storytel Reader as it runs
-Android 4.2.2 – insteal we have to use the last version compatible version.
+Android 4.2.2 – instead we have to use the last version compatible version.
 
 1st generation:
 ```bash
@@ -468,6 +474,12 @@ adb shell monkey -p org.fdroid.fdroid -v 1
 Once [F-Droid](#f-droid) is installed you can use it to install
 [RelaunchX](https://f-droid.org/en/packages/com.gacode.relaunchx/) – a launcher
 targeted at devices with E-Ink displays.
+
+> [!WARNING]
+> After installing RelaunchX it is recommended to reboot your
+> device. It has been
+> [reported](https://github.com/ntherning/StorytelReaderMods/discussions/2#discussioncomment-8036927)
+> that, without a reboot, no apps will show up in RelaunchX.
 
 ### KOReader
 
