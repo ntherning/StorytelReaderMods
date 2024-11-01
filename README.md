@@ -455,16 +455,16 @@ Android 4.2.2 – instead we have to use the last version compatible version.
 
 1st generation:
 ```bash
-curl -O "https://f-droid.org/F-Droid.apk"
-adb install F-Droid.apk
+curl -O "https://f-droid.org/archive/org.fdroid.fdroid_1012051.apk"
+adb install org.fdroid.fdroid_1012051.apk
 # Launch F-Droid
 adb shell monkey -p org.fdroid.fdroid -v 1
 ```
 
 2nd generation:
 ```bash
-curl -O "https://f-droid.org/archive/org.fdroid.fdroid_1012051.apk"
-adb install org.fdroid.fdroid_1012051.apk
+curl -O "https://f-droid.org/F-Droid.apk"
+adb install F-Droid.apk
 # Launch F-Droid
 adb shell monkey -p org.fdroid.fdroid -v 1
 ```
