@@ -449,19 +449,14 @@ Reader.
 ### F-Droid
 
 [F-Droid](https://f-droid.org) is an alternative to Google Play Store for
-installing FOSS (Free and Open Source Software) apps. Unfortunately the latest
-version is not compatible with the 1st generation Storytel Reader as it runs
-Android 4.2.2 – instead we have to use the last compatible version.
+installing FOSS (Free and Open Source Software) apps.
 
-1st generation:
-```bash
-curl -O "https://f-droid.org/archive/org.fdroid.fdroid_1012051.apk"
-adb install org.fdroid.fdroid_1012051.apk
-# Launch F-Droid
-adb shell monkey -p org.fdroid.fdroid -v 1
-```
+> [!NOTE]
+> Unfortunately F-Droid no
+> longer works on 1st generation devices. You can still use `curl` to download
+> individual APKs from F-Droid and install them using `adb install`.
 
-2nd generation:
+For 2nd generation devices install F-Droid like this:
 ```bash
 curl -O "https://f-droid.org/F-Droid.apk"
 adb install F-Droid.apk
@@ -471,9 +466,15 @@ adb shell monkey -p org.fdroid.fdroid -v 1
 
 ### RelaunchX
 
-Once [F-Droid](#f-droid) is installed you can use it to install
-[RelaunchX](https://f-droid.org/en/packages/com.gacode.relaunchx/) – a launcher
-targeted at devices with E-Ink displays.
+[RelaunchX](https://f-droid.org/en/packages/com.gacode.relaunchx/) is a launcher
+targeted at devices with E-Ink displays. On 2nd generation devices RelaunchX
+can be installed using [F-Droid](#f-droid).
+
+For 1st generation devices RelaunchX can be installed via `curl` and `adb`:
+```bash
+curl -O "https://f-droid.org/repo/com.gacode.relaunchx_200106000.apk"
+adb install com.gacode.relaunchx_200106000.apk
+```
 
 > [!WARNING]
 > After installing RelaunchX it is recommended to reboot your
@@ -481,8 +482,20 @@ targeted at devices with E-Ink displays.
 > [reported](https://github.com/ntherning/StorytelReaderMods/discussions/2#discussioncomment-8036927)
 > that, without a reboot, no apps will show up in RelaunchX.
 
+On the next reboot after RelaunchX has been installed the device should ask
+whether you want to use Storytel or RelaunchX as the launcher. If you pick *Just
+once* you should get the same  question again on the next boot.
+
 ### KOReader
 
 [KOReader](https://f-droid.org/en/packages/org.koreader.launcher.fdroid/) is
 an Ebook reader with support for many formats like PDF, DjVu, EPUB, FB2, CBZ. It
-is available via [F-Droid](#f-droid).
+is available via [F-Droid](#f-droid) for 2nd generation devices.
+
+For 1st generation devices this installs the last version of KOReader which can
+run on Android 4.2:
+
+```bash
+curl -L -O "https://github.com/koreader/koreader/releases/download/v2023.06.1/koreader-android-arm-v2023.06.1.apk"
+adb install koreader-android-arm-v2023.06.1.apk
+```
