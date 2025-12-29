@@ -29,7 +29,7 @@ def unpack(boot_img: PathLike, out_dir: PathLike):
         # Not an android boot image.
         info = unpack_rockchip_krnl_bootimg(boot_img, out_dir)
 
-    info["image_size"] = Path(boot_img).stat(follow_symlinks=True).st_size
+    info["image_size"] = Path(boot_img).stat().st_size
 
     ramdisk_extracted = Path(out_dir, "ramdisk.extracted")
     ramdisk_extracted.mkdir(parents=True, exist_ok=True)
