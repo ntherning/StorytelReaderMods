@@ -451,7 +451,7 @@ Reader.
 [F-Droid](https://f-droid.org) is an alternative to Google Play Store for
 installing FOSS (Free and Open Source Software) apps. Unfortunately the latest
 version is not compatible with the 1st generation Storytel Reader as it runs
-Android 4.2.2 – instead we have to use the last version compatible version.
+Android 4.2.2 – instead we have to use the last compatible version.
 
 1st generation:
 ```bash
