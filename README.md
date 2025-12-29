@@ -379,7 +379,7 @@ be able to use `su` via ADB.
 
 ### Required software
 
-We need Git and Python 3 to run the scripts to patch the `boot` partition.
+We need Git and Python 3.7+ to run the scripts to patch the `boot` partition.
 
 On **macOS** you get Git and Python 3 by installing the Xcode command line
 developer tools:
